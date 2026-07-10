@@ -107,4 +107,14 @@ public class OrderTest {
         assertEquals("SKU-100", order.sku());
         assertEquals(1, order.qty());
     }
+     @Test
+    void createsOrder() {
+
+        factory.persisted(OrderBuilder.anOrder()
+                        .withQty(3)
+                        .build()
+        );
+
+        assertEquals(0, repo.count());
+    }
 }
